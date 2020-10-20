@@ -2,24 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>sc-security</artifactId>
+    <groupId>com.test</groupId>
+    <version>1.0.0</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.test</groupId>
-  <artifactId>sc-security</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0.0</version>
-  <modules>
-    <module>sc-security-api</module>
-    <module>sc-security-spring</module>
-  </modules>
+  <artifactId>nj-security-api</artifactId>
 
   <properties>
-    <sc-share.version>1.0.0</sc-share.version>
-
-    <kotlin.version>1.3.72</kotlin.version>
-    <jakarta.validation-api>2.0.2</jakarta.validation-api>
-    <jackson.version>2.11.2</jackson.version>
-
     <!--spring-->
     <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
     <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
@@ -35,7 +26,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <!-- spring -->
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter</artifactId>
@@ -69,31 +59,6 @@
           <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
         <version>${maven-compiler-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>${maven-source-plugin.version}</version>
-        <configuration>
-          <attach>true</attach>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>compile</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- 跳过单元测试 -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven-surefire-plugin.version}</version>
-        <configuration>
-          <skipTests>true</skipTests>
-        </configuration>
       </plugin>
     </plugins>
   </build>
