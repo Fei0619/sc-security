@@ -16,5 +16,9 @@
     <module>sc-security-oauth2</module>
   </modules>
 
+  <properties>
+    <sc-security-spring.version>1.0.0</sc-security-spring.version>
+    <sc-share.version>1.0.0</sc-share.version>
+  </properties>
 
 </project>
