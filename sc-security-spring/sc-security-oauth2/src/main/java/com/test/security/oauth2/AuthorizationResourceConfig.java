@@ -41,7 +41,14 @@ public class AuthorizationResourceConfig extends ResourceServerConfigurerAdapter
     }
     permitMatchers.add(securityProperties.getLoginProcessUrl()); //短信验证码登录接口
     permitMatchers.add(securityProperties.getSmsLoginProcessUrl()); //用户名密码登录接口
+    permitMatchers.add(securityProperties.getValidateCode().getImage().getProcessingUrl()); //获取图片验证码接口地址
+    permitMatchers.add(securityProperties.getValidateCode().getSms().getProcessingUrl()); //获取短信验证码接口地址
 
+    http.formLogin()
+        .loginPage(securityProperties.getLoginPage()) //登录页
+        .loginProcessingUrl(securityProperties.getLoginProcessUrl()) //登录接口地址
+        .usernameParameter(securityProperties.getUsernameParameter()) //用户名参数名
+        .passwordParameter(securityProperties.getPasswordParameter()); //密码参数名
 
     super.configure(http);
   }

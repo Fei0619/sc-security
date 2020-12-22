@@ -2,6 +2,7 @@ package com.test.security.core.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
@@ -65,6 +66,11 @@ public class SecurityProperties {
    */
   private List<String> subPermitMatchers = new ArrayList<>();
   /**
+   * 验证码相关
+   */
+  @NestedConfigurationProperty
+  private ValidateCodeProperties validateCode = new ValidateCodeProperties();
+  /**
    * 登录接口免验证码次数
    */
   private int loginVerificationFreeTimes = 0;
@@ -72,6 +78,17 @@ public class SecurityProperties {
    * 密码登录失败超阈值时，账号锁定时间（单位:min）
    */
   private int passwordLoginFailureReleaseTime = 30 * 60;
-
-
+  /**
+   * 密码登录密码错误阈值，到达阈值时阻止登录，
+   * 大于0时开启冻结功能
+   */
+  private int passwordLoginFailureThreshold = -1;
+  /**
+   * 密码登录密码错误次数redisKey
+   */
+  private String passwordLoginFailureRedisKey = "auth:LoginFailureCount:";
+  /**
+   * 获取用户登录失败错误次数的url
+   */
+  private String getLoginFailureCountUrl = "/password/login/failureCount";
 }
