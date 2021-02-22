@@ -1,7 +1,7 @@
 package com.test.security.core.result;
 
 import org.springframework.security.access.AccessDeniedException;
-import result.Res;
+import com.test.share.common.result.Res;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

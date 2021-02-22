@@ -1,8 +1,8 @@
 package com.test.security.core.result;
 
-import json.JsonUtils;
+import com.test.share.common.json.JsonUtils;
 import org.springframework.security.access.AccessDeniedException;
-import result.Res;
+import com.test.share.common.result.Res;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
